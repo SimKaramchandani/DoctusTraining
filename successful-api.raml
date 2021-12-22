@@ -1,0 +1,44 @@
+#%RAML 1.0
+title: Successful API
+
+securitySchemes:
+ oauth_2_0:
+       description: |
+           Mule OAuth 2.0.
+       type: OAuth 2.0
+       describedBy:
+           headers:
+              Authorization:
+                type: string
+                required: true
+
+           responses:
+
+               401:
+
+               403:
+
+
+       settings:
+
+        authorizationUri: http://0.0.0.0:8081/authorize
+
+        accessTokenUri: http://0.0.0.0:8081/access-token
+
+        authorizationGrants: [ client_credentials]
+
+/add:
+  get:
+    securedBy:
+      [ oauth_2_0]
+
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message: "Successful"
+            
+          
+            
+            
